@@ -1,0 +1,30 @@
+body {
+	background: url("../images/alien_landscape.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 680px;
+
+
+}
+
+div.charop {
+	display: inline-block;
+	padding: 10px;
+	background-color: #abc;
+	font-size: 10px;
+	font-family: 'Bungee', cursive;
+	text-align: center;
+
+
+}
+
+div.char {
+	color:#b11;
+	font-family: 'Bungee', cursive;
+}
+
+img.fighter {width:150px;height:150px;
+	padding: 10px;
+	padding
+
+}
