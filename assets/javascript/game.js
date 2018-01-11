@@ -58,9 +58,9 @@ var renderOne = function(character, renderArea, makeChar) {
  	$(renderArea).append(charDiv)
 
 };
-
+// Function to render characters to designated area
 var renderCharacters = function(charObj,areaRender) {
-	if (areaRender == '#character-section') {
+	if (areaRender === '#character-section') {
 		 $(areaRender).empty();
       		for (var key in charObj) {
         		if (charObj.hasOwnProperty(key)) {
@@ -68,6 +68,18 @@ var renderCharacters = function(charObj,areaRender) {
        			 }
      		 }
     	}
+
+    	if (areaRender === "#selected-character-section") {
+ 		renderOne(charObj,areaRender);
+		}
+		//loop through characters and place them to enemy to fight area
+		if (areaRender === "#enemy-to-fight"){
+			for(var i=0;i<charObj.length;i++){
+				renderOne(charObj[i],areaRender)
+
+			}
+ 	
+ 		}
 	}
 
 
@@ -75,7 +87,7 @@ var renderCharacters = function(charObj,areaRender) {
 renderCharacters(characters, "#character-section");
 
 
-
+// Mouse over graphic
 $(document).on({
 		mouseenter: function(){
 			var selector = $(this).css('background-color', '#1d2');
@@ -89,13 +101,34 @@ $(document).on({
 		}
 	}, '.character');
 
-
-/*$(document).on("click", ".character", function() {
-	
+// Selecting a Character on click
+$(document).on("click", ".character", function() {
+	// assigning the selected characters name
 	var name = $(this).attr("data-name");
-	alert(name);
+	//If players character has not been chosen
+	if(!currPlayer){
+		// selected player = current player
+		currPlayer = characters[name];
+		//loop thorugh rest of characters and push them to combatants array
+		for (var key in characters) {
+			if (key !== name) {
+				combatants.push(characters[key]);
+				}
+			}
 
-})*/
+		console.log(combatants);	
+		//Hide characters that were unselected
+		$("#character-section").hide();
+
+		//Render selected player in selected player div
+		renderCharacters(currPlayer , "#selected-character-section")
+		//Render remaining characters in enemy to fight section
+		renderCharacters(combatants, "#enemy-to-fight")
+		}
+
+	})
+
+
 
 });
 
