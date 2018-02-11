@@ -1,65 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Alien RPG</title>
-<head>
 
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<head>
+	<title>Alien RPG</title>
+
+
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-<link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
 
-	
+
 </head>
 
 <body>
 
-<div class="char">
-<h1 style="text-align: center;">Alien RPG</h1>
-</div>
+	<div class="char">
+		<h1 style="text-align: center;">Alien RPG</h1>
+	</div>
 
 	<!--Section to select character-->
 	<div id="character-section">
-	<div class="char">Select Your Character</div>
+		<div class="char">Select Your Character</div>
 	</div>
 
-	
-	
+
+
 	<!--Section for selected character-->
 	<div id="selected-character-section">
-	<div class="char">Your Character</div>
-	<div id= "selected-character">
+		<div class="char">Your Character</div>
+		<div id="selected-character"></div>
 	</div>
 
 	<!--Enemies to be selected to fight-->
-	<div id= "enemy-to-fight">
-	<div class="char">Enemies Available to Attack</div>
+	<div id="enemy-to-fight">
+		<div class="char">Enemies Available to Attack</div>
 	</div>
 
 
 	<!--Fight section -->
 	<div id="fight-section">
-	<div class="char">Fight Section  </div>
-	<button type="button" class="btn btn-danger" style="font-weight: bolder;">Attack</button>
+		<div class="char">Fight Section </div>
+		<button id="attack-button" type="button" class="btn btn-danger" style="font-weight: bolder;">Attack</button>
 	</div>
 
-	<!--Selected Defender-->
-	<div id="defender-section">
-	<div class="char">Defender</div>
-	<div id="selected-defender"></div>
+	<div id="action">
+		<!--Selected Defender-->
+		<div class="character-section">
+			<div class="char">Defender</div>
+			<div id="defender"></div>
+		</div>
 	</div>
-
 
 	<div id="game-status"></div>
 
 
 
-	
-
-
-	
 
 
 
@@ -67,20 +65,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!--Javascript-->
-<script src="assets/javascript/game.js"></script>
+	<!--Javascript-->
+	<script src="assets/javascript/game.js"></script>
 
 
 </body>
+
 </html>
