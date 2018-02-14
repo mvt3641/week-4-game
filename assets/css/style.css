@@ -7,6 +7,12 @@ body {
 
 }
 
+#game-status{
+	background-color: red;
+	color:black;
+	font-weight: bold;
+}
+
 
 div.char {
 	color:#b11;
@@ -14,7 +20,7 @@ div.char {
 }
 
 
-.character{ 
+.character{
 	display: inline-block;
 	border-style: solid;
 	border-color: red;
@@ -27,6 +33,18 @@ div.char {
 
 }
 
+.gameover{
+	display: inline-block;
+	border-style: solid;
+	border-color: red;
+	background-color: red;
+	font-size: 10px;
+	font-family: 'Bungee', cursive;
+	text-align: center;
+	cursor: crosshair;
+
+
+}
 .character-name{
 
 }

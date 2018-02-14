@@ -4,14 +4,14 @@ $(document).ready(function() {
     "Alien": {
       name: "Alien",
       health: 150,
-      attack: 14,
+      attack: 7,
       imageUrl: "assets/images/alien_xenomorph.jpg",
       counterAttack: 10
 
     },
     "Predator": {
       name: "Predator",
-      health: 125,
+      health: 150,
       attack: 14,
       imageUrl: "assets/images/predator.jpg",
       counterAttack: 10
@@ -20,14 +20,14 @@ $(document).ready(function() {
     "Queen": {
       name: "Queen",
       health: 150,
-      attack: 14,
+      attack: 8,
       imageUrl: "assets/images/queen_alien.jpg",
-      counterAttack: 10
+      counterAttack: 15
     },
     "Colonial Marine": {
       name: "Colonial Marine",
       health: 150,
-      attack: 14,
+      attack: 5,
       imageUrl: "assets/images/colonial marine.jpg",
       counterAttack: 10
 
@@ -145,18 +145,18 @@ var renderMessage = function(message) {
 
   };
 
-	var restartGame = function(inputEndGame){
+  ///RESTART GAME FUNCTIOM///
+  var makebutn = function(){
+  var resbutn =  $('<button>Restart</button>').append("#game-status")
+  resbutn.on('click',function(){
+    location.reload;
+  });
 
-		var restart =$('<button>Restart</button>').click(function(){
-			location.reload();
-		});
+  };
 
-		var gameState =$('<div').text(inputEndGame);
 
-		$('body').append(gameState);
-		$('body').append(restartGame);
 
-	};
+
 
   //Render all characters to the page//
   renderCharacters(characters, "#character-section");
@@ -170,7 +170,7 @@ var renderMessage = function(message) {
 
     },
     mouseleave: function() {
-      var selector = $(this).css('background-color', '#abc')
+      var selector = $(this).css('background-color', '#abc');
 
 
     }
@@ -206,11 +206,12 @@ var renderMessage = function(message) {
 	// When attack button is clicked run the following logic//
 $("#attack-button").on('click', function(){
 
-	if($('#defender').children().length !==0){
-		currEnemy.health -= (currPlayer.attack * turnCounter);
+	 if($('#defender').children().length !==0){
+		var dam = currEnemy.health -= (currPlayer.attack * turnCounter);
+    var att =(currPlayer.attack * turnCounter);
+    console.log("player attack for "+dam+ "Player attack lvl up: "+att);
 
-		if (currPlayer.health >0){
-
+       if (currPlayer.health > 0){
 			// show the enemy updated character charDiv
 			renderCharacters(currEnemy, "playerDamage");
 
@@ -222,38 +223,36 @@ $("#attack-button").on('click', function(){
 			// Render the players updated card
 			renderCharacters(currPlayer, "enemyDamage");
 
-			if (currPlayer.heath <=0) {
-				renderMessage("clearMessage")
-				restartGame("you have been defeated...Game Over Man..")
+    };
+
+
+			if (currPlayer.health < 0) {
+				renderMessage("clearMessage");
+				renderMessage("you have been defeated...Game Over Man..");
 				$("#attack-button").unbind("click");
-			}
+        $('#selected-character-section').children().removeClass('character').addClass('gameover');
+        console.log(currPlayer);
+			};
 
 
-		}
 
-		else {
+
+		if (currEnemy.health < 0) {
 
 	 	 // Remove enemy player card
 	 	 renderCharacters(currEnemy,"enemyDefeated");
 	 	 killCount++
-	 	 if (killCount >= 3) {
+	 	 if (killCount == 3) {
 	 		 renderMessage("clearMessage");
-	 		 restartGame("You Won!! Game over man!!");
-
-	}
+	 		 renderMessage("You Won!! Game over man!!");
 
 
-// If the enemy has less than zero health they are defeated
- // else {
- //
-	//  // Remove enemy player card
-	//  renderCharacters(currEnemy,"enemyDefeated");
-	//  killCount++
-	//  if (killCount >= 3) {
-	// 	 renderMessage("clearMessage");
-	// 	 restartGame("You Won!! Game over man!!");
 
-	 }
+
+
+	};
+
+ }
  }
 	turnCounter++;
 });
